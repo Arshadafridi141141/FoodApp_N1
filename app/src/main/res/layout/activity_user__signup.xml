@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Customer.User_Signup">
+
+    <LinearLayout
+        android:layout_marginTop="100dp"
+        android:layout_width="match_parent"
+        android:layout_height="700dp"
+        android:orientation="vertical"
+        android:layout_margin="40dp">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/login"/>
+
+        <EditText
+            android:id="@+id/user_register_number"
+            android:layout_marginTop="70dp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:hint="Cell number"
+            android:textSize="20sp"
+            android:ems="10"/>
+        <EditText
+            android:id="@+id/user_register_name"
+            android:hint="Name"
+            android:textSize="20sp"
+            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>
+        <EditText
+            android:id="@+id/user_register_password"
+            android:hint="Password"
+            android:textSize="20sp"
+            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>
+        <EditText
+            android:id="@+id/user_confirm_register_password"
+            android:hint="Confirm Password"
+            android:textSize="20sp"
+            android:ems="10"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"/>
+        <Button
+            android:id="@+id/user_register_button"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@drawable/roundbutton"
+            android:text="Register"
+            android:onClick="Register"
+            android:layout_marginTop="70dp"
+            tools:ignore="OnClick" />
+
+
+
+
+    </LinearLayout>
+</LinearLayout>
