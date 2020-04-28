@@ -4,10 +4,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
-import com.example.foodorder.Model.Food;
+import com.example.foodorder.Customer.Interface.ItemClickListener;
+import com.example.foodorder.Model.Fooditem;
 import com.example.foodorder.R;
 import com.example.foodorder.Viewholder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
@@ -20,6 +23,7 @@ public class Menu extends AppCompatActivity {
     RecyclerView recyclerView;
     FirebaseDatabase database;
     DatabaseReference reference;
+    FirebaseRecyclerAdapter<Fooditem, Viewholder> firebaseRecyclerAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,27 +35,41 @@ public class Menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         database=FirebaseDatabase.getInstance();
-        reference=database.getReference().child("Foods");
+        reference=database.getReference().child("Food_details");
        recyclerView=(RecyclerView) findViewById(R.id.RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
 
 
-        FirebaseRecyclerAdapter<Food, Viewholder> firebaseRecyclerAdapter=
+        firebaseRecyclerAdapter=
 
-                new FirebaseRecyclerAdapter<Food, Viewholder>(
-                        Food.class,
+                new FirebaseRecyclerAdapter<Fooditem, Viewholder>(
+                        Fooditem.class,
                         R.layout.customized_menu,
                         Viewholder.class,
                         reference
                 ) {
                     @Override
-                    protected void populateViewHolder(Viewholder viewholder, Food food, int i) {
+                    protected void populateViewHolder(Viewholder viewholder, final Fooditem food, int i) {
 
                         viewholder.setdetails(getApplicationContext(),food.getImage(),food.getName());
 
+                        viewholder.setItemClickListener(new ItemClickListener() {
+                            @Override
+                            public void onClick(View view, int position, boolean islongclick) {
+                                Intent foodetail=new Intent(Menu.this,Fooddetails.class);
+                                foodetail.putExtra("Foodid",firebaseRecyclerAdapter.getRef(position).getKey());
+                                startActivity(foodetail);
+                            }
+                        });
+
+
+
+
                     }
+
                 };
+
 
 
        recyclerView.setAdapter(firebaseRecyclerAdapter);
