@@ -39,6 +39,7 @@ public class Fooddetails extends AppCompatActivity {
         number_button=(ElegantNumberButton) findViewById(R.id.number_button);
         cart_button=(FloatingActionButton)findViewById(R.id.btnCart);
         Log.e("checking","in food details");
+        Log.e("checking","in food details");
 
         foodname=(TextView)findViewById(R.id.food_name);
         foodprice=(TextView)findViewById(R.id.food_price);
