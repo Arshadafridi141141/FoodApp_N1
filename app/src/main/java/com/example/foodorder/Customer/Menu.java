@@ -14,6 +14,7 @@ import com.example.foodorder.Model.Fooditem;
 import com.example.foodorder.R;
 import com.example.foodorder.Viewholder;
 import com.firebase.ui.database.FirebaseRecyclerAdapter;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -23,6 +24,7 @@ public class Menu extends AppCompatActivity {
     RecyclerView recyclerView;
     FirebaseDatabase database;
     DatabaseReference reference;
+    FloatingActionButton cart;
     FirebaseRecyclerAdapter<Fooditem, Viewholder> firebaseRecyclerAdapter;
 
     @Override
@@ -38,6 +40,14 @@ public class Menu extends AppCompatActivity {
         reference=database.getReference().child("Food_details");
        recyclerView=(RecyclerView) findViewById(R.id.RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        cart=(FloatingActionButton) findViewById(R.id.meni_cart);
+        cart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Menu.this,Cart.class);
+                startActivity(intent);
+            }
+        });
 
 
 
@@ -62,16 +72,8 @@ public class Menu extends AppCompatActivity {
                                 startActivity(foodetail);
                             }
                         });
-
-
-
-
                     }
-
                 };
-
-
-
        recyclerView.setAdapter(firebaseRecyclerAdapter);
 
 
