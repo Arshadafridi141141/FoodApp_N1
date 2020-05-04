@@ -60,7 +60,9 @@
                 android:background="@color/btcSignActive"
                 android:shadowColor="@color/colorPrimary"
                 android:text="Place Order"
-                android:textColor="@android:color/white" />
+                android:textColor="@android:color/white"
+                android:onClick="Place_Order"
+                tools:ignore="OnClick" />
 
 
         </RelativeLayout>
