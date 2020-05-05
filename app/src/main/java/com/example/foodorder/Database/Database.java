@@ -91,5 +91,12 @@ public class Database extends SQLiteOpenHelper{
         return null;
 
     }
+    public void clearcart(){
+        SQLiteDatabase database=this.getReadableDatabase();
+        String querry="DELETE FROM OrderDetails";
+
+        database.execSQL(querry);
+
+    }
 
 }

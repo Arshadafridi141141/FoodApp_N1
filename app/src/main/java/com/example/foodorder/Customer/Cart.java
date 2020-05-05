@@ -89,43 +89,36 @@ public class Cart extends AppCompatActivity {
         builder.setIcon(R.drawable.cart_icon_foreground);
 
         builder.setCancelable(false);
-        builder
-                .setPositiveButton(
-                        "Yes",
-                        new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(
+                "Yes",
+                new DialogInterface.OnClickListener() {
 
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                Request request=new Request(
-                                        Common.current_user.getName(),
-                                        Common.current_user.getNumber(),
-                                        totalprice.getText().toString(),
-                                        setAddress.getText().toString(),
-                                        cart
-                                );
-                                Log.e("checking","name="+Common.current_user.getName());
-                                Log.e("checking","Number="+Common.current_user.getNumber());
-                                Log.e("checking","Total Price="+totalprice.getText().toString());
-                                Log.e("checking","Address="+setAddress.getText().toString());
-                                Log.e("checking","cart="+cart);
-                               // requests.child(String.valueOf(System.currentTimeMillis())).setValue(request);
-                                dialog.dismiss();
-                            }
-                        });
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        Request request = new Request(
+                                Common.current_user.getName(),
+                                Common.current_user.getNumber(),
+                                totalprice.getText().toString(),
+                                setAddress.getText().toString()
+                                //solve problem for food list
+                        );
+                        requests.child(Common.current_user.getNumber()).setValue(request);
+                         new Database(getBaseContext()).clearcart();
+                        dialog.dismiss();
+                    }
+                });
+        builder.setNegativeButton(
+                "No",
+                new DialogInterface
+                        .OnClickListener() {
 
-        builder
-                .setNegativeButton(
-                        "No",
-                        new DialogInterface
-                                .OnClickListener() {
-
-                            @Override
-                            public void onClick(DialogInterface dialog,
-                                                int which) {
-                                dialog.cancel();
-                            }
-                        });
+                    @Override
+                    public void onClick(DialogInterface dialog,
+                                        int which) {
+                        dialog.cancel();
+                    }
+                });
 
         AlertDialog alertDialog = builder.create();
 

@@ -6,6 +6,8 @@ public class Order {
     public String Quantity;
     public String Price;
     public String Discount;
+
+
     public Order(){}
 
     public Order(String productId, String productName, String quantity, String price, String discount) {

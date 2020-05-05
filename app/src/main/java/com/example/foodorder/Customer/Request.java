@@ -12,6 +12,13 @@ public class Request {
     List<Order> foods;
     public Request(){}
 
+    public Request(String name, String phone, String total, String address) {
+        this.name = name;
+        this.phone = phone;
+        this.total = total;
+        this.address = address;
+    }
+
     public Request(String name, String phone, String total, String address, List<Order> foods) {
         this.name = name;
         this.phone = phone;
