@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.foodorder.Customer.Common.Common;
 import com.example.foodorder.Model.Login_user;
+import com.example.foodorder.Navigation_drawer;
 import com.example.foodorder.R;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -58,7 +59,7 @@ public class Login extends AppCompatActivity {
                        if (login_user.getPassword().equals(str_password)) {
                             Toast.makeText(Login.this, "Sign in Succssfully", Toast.LENGTH_SHORT).show();
                            Common.current_user=login_user;
-                           Intent intent=new Intent(Login.this,Menu.class);
+                           Intent intent=new Intent(Login.this, Navigation_drawer.class);
                            startActivity(intent);
                         } else {
 
