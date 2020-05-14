@@ -8,16 +8,6 @@
     tools:context=".Customer.Menu">
 
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/meni_cart"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        tools:ignore="RtlHardcoded"
-        android:src="@drawable/cart_icon_foreground"
-        app:cardBackgroundColor="@color/colorPrimary"
-        android:backgroundTint="@android:color/white"
-        />
     <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

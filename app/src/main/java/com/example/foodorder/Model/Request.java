@@ -1,6 +1,5 @@
-package com.example.foodorder.Customer;
+package com.example.foodorder.Model;
 
-import com.example.foodorder.Model.Order;
 
 import java.util.List;
 
@@ -9,6 +8,7 @@ public class Request {
     public String phone;
     public String total;
     public String address;
+    public String status;
     List<Order> foods;
     public Request(){}
 
@@ -17,6 +17,8 @@ public class Request {
         this.phone = phone;
         this.total = total;
         this.address = address;
+        this.status="0";
+
     }
 
     public Request(String name, String phone, String total, String address, List<Order> foods) {
@@ -25,6 +27,15 @@ public class Request {
         this.total = total;
         this.address = address;
         this.foods = foods;
+        this.status="0";
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getName() {

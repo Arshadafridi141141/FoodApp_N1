@@ -24,7 +24,6 @@ public class Menu extends AppCompatActivity {
     RecyclerView recyclerView;
     FirebaseDatabase database;
     DatabaseReference reference;
-    FloatingActionButton cart;
     FirebaseRecyclerAdapter<Fooditem, Viewholder> firebaseRecyclerAdapter;
 
     @Override
@@ -40,14 +39,6 @@ public class Menu extends AppCompatActivity {
         reference=database.getReference().child("Food_details");
        recyclerView=(RecyclerView) findViewById(R.id.RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        cart=(FloatingActionButton) findViewById(R.id.meni_cart);
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(Menu.this,Cart.class);
-                startActivity(intent);
-            }
-        });
 
 
 

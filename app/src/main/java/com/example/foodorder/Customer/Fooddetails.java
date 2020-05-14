@@ -59,7 +59,7 @@ public class Fooddetails extends AppCompatActivity {
                         currentFood.getPrice(),
                         "100"
                 ));
-                Toast.makeText(Fooddetails.this, "", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Fooddetails.this, "added to cart", Toast.LENGTH_SHORT).show();
 
 
 

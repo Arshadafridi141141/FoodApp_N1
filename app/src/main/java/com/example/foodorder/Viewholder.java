@@ -63,6 +63,7 @@ public class Viewholder extends RecyclerView.ViewHolder implements View.OnClickL
     @Override
     public void onClick(View v) {
         itemClickListener.onClick(v,getAdapterPosition(),false);
-
     }
+
+
 }

@@ -1,12 +1,21 @@
 package com.example.foodorder;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.foodorder.Customer.Cart;
+import com.example.foodorder.Customer.Fooddetails;
+import com.example.foodorder.Customer.Login;
+import com.example.foodorder.Customer.OrderStatus;
+import com.example.foodorder.Database.Database;
+import com.example.foodorder.Model.Order;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import android.view.MenuItem;
 import android.view.View;
 
+import androidx.annotation.NonNull;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
@@ -20,6 +29,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
+import android.widget.Toast;
 
 public class Navigation_drawer extends AppCompatActivity {
 
@@ -31,15 +41,18 @@ public class Navigation_drawer extends AppCompatActivity {
         setContentView(R.layout.activity_navigation_drawer);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        FloatingActionButton cart = findViewById(R.id.cart_draw);
+        cart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                Intent intent=new Intent(getApplicationContext(), Cart.class);
+                startActivity(intent);
+
+
+
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
+        final DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
@@ -51,6 +64,31 @@ public class Navigation_drawer extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+        navigationView.bringToFront();
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()){
+                    case R.id.nav_home:
+                        Toast.makeText(getApplicationContext(), "Home is selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_gallery:
+                        Intent test=new Intent(getBaseContext(), OrderStatus.class);
+                        startActivity(test);
+                        break;
+                    case R.id.nav_slideshow:
+                        Toast.makeText(getApplicationContext(), "slide show is selected", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.nav_tools:
+                        Toast.makeText(getApplicationContext(), "Tools is selected", Toast.LENGTH_SHORT).show();
+                        break;
+                }
+                drawer.closeDrawers();
+
+                return false;
+            }
+        });
     }
 
     @Override

@@ -45,14 +45,7 @@ public class HomeFragment extends Fragment {
         reference=database.getReference().child("Food_details");
         recyclerView=(RecyclerView) root.findViewById(R.id.RecyclerView);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        cart=(FloatingActionButton) root.findViewById(R.id.meni_cart);
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(), Cart.class);
-                startActivity(intent);
-            }
-        });
+
 
 
 
