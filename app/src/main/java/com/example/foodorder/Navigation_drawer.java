@@ -77,8 +77,11 @@ public class Navigation_drawer extends AppCompatActivity {
                         Intent test=new Intent(getBaseContext(), OrderStatus.class);
                         startActivity(test);
                         break;
-                    case R.id.nav_slideshow:
+                    case R.id.nav_slideshow://Driver Location
                         Toast.makeText(getApplicationContext(), "slide show is selected", Toast.LENGTH_SHORT).show();
+                        Intent location=new Intent(getBaseContext(),MapsActivity.class);
+                        startActivity(location);
+
                         break;
                     case R.id.nav_tools:
                         Toast.makeText(getApplicationContext(), "Tools is selected", Toast.LENGTH_SHORT).show();
