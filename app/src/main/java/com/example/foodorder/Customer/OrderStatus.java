@@ -51,6 +51,8 @@ public class OrderStatus extends AppCompatActivity {
                 orderViewHolder.orderstatus.setText(convertCodeToStatus(request.getStatus()));
                 orderViewHolder.orderphone.setText(request.getPhone());
                 orderViewHolder.orderaddress.setText(request.getAddress());
+                orderViewHolder.totalPrice.setText(request.getTotal());
+
 
             }
         };

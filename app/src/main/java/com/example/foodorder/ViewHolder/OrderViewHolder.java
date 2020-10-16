@@ -10,7 +10,7 @@ import com.example.foodorder.Customer.Interface.ItemClickListener;
 import com.example.foodorder.R;
 
 public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
-    public TextView orderid,orderstatus,orderphone,orderaddress;
+    public TextView orderid,orderstatus,orderphone,orderaddress,totalPrice;
     public ItemClickListener itemClickListener;
     public OrderViewHolder(@NonNull View itemView) {
         super(itemView);
@@ -18,6 +18,7 @@ public class OrderViewHolder extends RecyclerView.ViewHolder implements View.OnC
         orderstatus=(TextView) itemView.findViewById(R.id.order_status);
         orderphone=(TextView) itemView.findViewById(R.id.order_phone);
         orderaddress=(TextView) itemView.findViewById(R.id.order_address);
+        totalPrice=(TextView) itemView.findViewById(R.id.order_totalPrice);
     }
 
     public OrderViewHolder(@NonNull View itemView, ItemClickListener itemClickListener) {

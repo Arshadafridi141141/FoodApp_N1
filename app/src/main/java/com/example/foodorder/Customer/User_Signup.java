@@ -3,6 +3,7 @@ package com.example.foodorder.Customer;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -41,6 +42,7 @@ public class User_Signup extends AppCompatActivity {
         final String str_number=number.getText().toString();
         final String str_name=name.getText().toString();
         final String str_password=password.getText().toString();
+        final String str_isstaff="false";
         String str_confirm_password=confirm_password.getText().toString();
         if(validation(str_number,str_name,str_password,str_confirm_password)){
             reference.addValueEventListener(new ValueEventListener() {
@@ -53,10 +55,14 @@ public class User_Signup extends AppCompatActivity {
                     }
                     else
                     {
-                        Login_user login_user=new Login_user(str_number,str_name,str_password);
+                        Login_user login_user=new Login_user(str_number,str_name,str_password,str_isstaff);
                         reference.child(str_number).setValue(login_user);
+
                         Toast.makeText(User_Signup.this,"Register Successfully",Toast.LENGTH_SHORT).show();
-                        finish();
+                        Intent Login_intent=new Intent(User_Signup.this,Login.class);
+                        startActivity(Login_intent);
+
+                       finish();
                     }
 
                 }

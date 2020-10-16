@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroundcolor"
     tools:context=".Customer.Login">
 
     <LinearLayout
@@ -13,10 +14,11 @@
         android:orientation="vertical"
         android:layout_margin="40dp">
 
+
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:src="@drawable/login"/>
+            android:src="@drawable/pizza"/>
 
         <EditText
             android:id="@+id/login_number"
@@ -24,15 +26,22 @@
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:hint="Cell number"
+            android:textColorHint="#FFFAFA"
+            android:inputType="number"
             android:textSize="20sp"
-            android:ems="10"/>
+
+            android:ems="10"
+            android:textColor="#FFFAFA"/>
         <EditText
-            android:id="@+id/login_password"
             android:hint="Password"
             android:textSize="20sp"
             android:ems="10"
+            android:textColorHint="#FFFAFA"
+            android:id="@+id/login_password"
             android:layout_width="match_parent"
-            android:layout_height="70dp"/>
+            android:layout_height="70dp"
+            android:textColor="#FFFAFA"
+            android:inputType="textPassword"/>
 
         <Button
             android:id="@+id/admin_login_button"

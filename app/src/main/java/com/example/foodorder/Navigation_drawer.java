@@ -78,7 +78,6 @@ public class Navigation_drawer extends AppCompatActivity {
                         startActivity(test);
                         break;
                     case R.id.nav_slideshow://Driver Location
-                        Toast.makeText(getApplicationContext(), "slide show is selected", Toast.LENGTH_SHORT).show();
                         Intent location=new Intent(getBaseContext(),MapsActivity.class);
                         startActivity(location);
 
@@ -86,6 +85,11 @@ public class Navigation_drawer extends AppCompatActivity {
                     case R.id.nav_tools:
                         Toast.makeText(getApplicationContext(), "Tools is selected", Toast.LENGTH_SHORT).show();
                         break;
+
+                    case R.id.nav_send: //Log out
+                        Toast.makeText(getApplicationContext(),"Loging out",Toast.LENGTH_SHORT).show();
+                        Intent Main=new Intent(getBaseContext(),MainActivity.class);
+                        startActivity(Main);
                 }
                 drawer.closeDrawers();
 
