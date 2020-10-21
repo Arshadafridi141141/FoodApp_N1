@@ -18,6 +18,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class User_Signup extends AppCompatActivity {
     EditText number,name,password,confirm_password;
     FirebaseDatabase database;
@@ -78,6 +81,14 @@ public class User_Signup extends AppCompatActivity {
 
     public Boolean validation(String str_number, String str_name, String str_password, String str_confirm_password){
         Boolean isvalid=true;
+        Pattern p=Pattern.compile("[A-Za-z]+");
+        Matcher m=p.matcher(str_name);
+
+
+        if(!(m.find())) {
+            name.setError("Please Check name format");
+            isvalid=false;
+        }
         if(TextUtils.isEmpty(str_number)){
             isvalid=false;
             number.setError("Enter number");

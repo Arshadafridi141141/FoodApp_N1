@@ -23,6 +23,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 public class Login extends AppCompatActivity {
     EditText number,password;
     Button login;
@@ -84,6 +87,7 @@ public class Login extends AppCompatActivity {
 
     private boolean Validation(String str_number, String str_password) {
         Boolean isvalid=true;
+
         if(TextUtils.isEmpty(str_number)){
             isvalid=false;
             number.setError("Enter number");
